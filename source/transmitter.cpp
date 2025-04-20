@@ -2,9 +2,9 @@
 #include <chrono>
 #include <thread>
 
-Transmitter::Transmitter(std::shared_ptr<PacketBuffer> &f_buffer)
+Transmitter::Transmitter(PacketBuffer& f_buffer) : buffer(f_buffer)
 {
-    buffTransmitter = f_buffer;
+
 }
 
 void Transmitter::receive()
@@ -12,7 +12,7 @@ void Transmitter::receive()
     while (true)
     {
         Packet receivedPacket;
-        buffTransmitter->extract(receivedPacket);
+        buffer.extract(receivedPacket);
     
         std::cout << "Received Packet: " << std::endl;
     

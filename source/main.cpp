@@ -14,12 +14,13 @@
 
 int main(){
 
-    auto buffer = std::make_shared<PacketBuffer>();
+    PacketBuffer buffer;
+
     Transmitter transmitter(buffer);
     Receiver receiver(buffer);
     
-    std::thread t2(&Transmitter::receive, &transmitter);
-    std::thread t1(&Receiver::provide, &receiver);
+    std::thread t1(&Transmitter::receive, &transmitter);
+    std::thread t2(&Receiver::provide, &receiver);
 
     t1.join();
     t2.join();

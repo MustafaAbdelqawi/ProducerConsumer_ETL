@@ -12,9 +12,9 @@
 #include "packetbuffer.hpp"
 
 class Receiver{
-    std::shared_ptr<PacketBuffer> buffProvider;
+    PacketBuffer& buffer;
     public:
-    explicit Receiver(std::shared_ptr<PacketBuffer>& f_buff);
+    explicit Receiver(PacketBuffer& f_buffer);
 
     // Prevent copying constructor and operator= overloading as a safety mechanism
     Receiver(const Receiver&) = delete;

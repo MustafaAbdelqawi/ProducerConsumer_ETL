@@ -13,11 +13,11 @@
 class Transmitter
 {
 private:
-    std::shared_ptr<PacketBuffer> buffTransmitter;
+    PacketBuffer& buffer;
 public:
     /// @brief 
     /// @param f_buffer 
-    explicit Transmitter(std::shared_ptr<PacketBuffer>& f_buffer);
+    explicit Transmitter(PacketBuffer& f_buffer);
 
     Transmitter(const Transmitter&) = delete;
     Transmitter operator=(const Transmitter&) = delete;
